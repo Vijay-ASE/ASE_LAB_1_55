@@ -1,0 +1,21 @@
+.left-div {
+    float: left;
+    margin-top: 60px;
+    width: 1000px;
+    height: 20px;
+    margin-right: 8px;
+    background-color: linen;
+}
+.right-div {
+    float: left;
+    margin-left: 500px;
+    width: 4000px;
+    background-color: skyblue;
+}​
+ table, th, td {
+     border: 1px solid black;
+     border-collapse: collapse;
+ }
+th, td {
+    padding: 5px;
+}

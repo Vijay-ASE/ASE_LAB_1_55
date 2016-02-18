@@ -1,0 +1,104 @@
+<html lang="" data-ng-app="GoogleDirection">
+<head>
+    <meta t="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
+        #map-canvas {
+            width: 650px;
+            height: 450px;
+            right: 0px;
+
+        }
+    </style>
+    <link rel="stylesheet" href="../HTML/home_page.css">
+</head>
+<body>
+<div class="left-div" ng-controller="googlemapoutput">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4" style="margin-left: 30px">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <strong> Get Directions</strong>
+                </div>
+                <div class="panel-body">
+                    <form role="form" action="#" method="POST">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+                                    <div class="form-group">
+                                        <div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-user"></i>
+												</span>
+                                            <input type="text" id= "source" class="form-control" placeholder="Source Place" ng-model="startlocation" autofocus id="startlocation"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-user"></i>
+												</span>
+                                            <input type="text" id= "endlocation" placeholder="Destination Place" class="form-control" ng-model="endlocation" id="endlocation" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="getdirections" type="button" style="background-color: darkmagenta" class="btn btn-lg btn-primary btn-block" value="Get Directions" ng-click="calcRoute();calcWeather()">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="weather-canvas" style="height: 300px;visibility: hidden" >
+        <table style="padding: 15px">
+            <tr>
+                <th></th>
+                <th><h3>{{src}}</h3></th>
+                <th>  <h3>{{dest}}</h3></th>
+            </tr>
+            <tr>
+                <td><strong>Temaparature:</strong></td>
+                <td>{{sourcetemp}}</td>
+                <td>   {{desttemp}}</td>
+            </tr>
+            <tr>
+                <td><strong>Pressure:</strong></td>
+                <td>{{sourcepre}}</td>
+                <td>  {{destpre}}</td>
+            </tr>
+            <tr>
+                <td><strong>Humidity: </strong></td>
+                <td>{{sourcehum}}</td>
+                <td>{{desthum}}</td>
+
+            </tr>
+            <tr>
+                <td><strong>Wind:</strong></td>
+                <td>{{sourcewind}}</td>
+                <td>  {{destwind}}</td>
+            </tr>
+            <tr>
+                <td><strong>Description:</strong></td>
+                <td>{{sourcedes}}</td>
+                <td>{{destdes}}</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+
+<div id="map-canvas" class="right-div">
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+<script src="Home.js" type="application/javascript"></script>
+</body>
+</html>
+
+
